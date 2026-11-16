@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>115-1 研究方法｜學生論文教師批改 PDF</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"PingFang TC","Microsoft JhengHei",sans-serif;background:#F4F6F8;color:#222;line-height:1.7;font-size:18px}
+  header{background:#1F3864;color:#fff;padding:40px 20px;text-align:center}
+  header h1{font-size:29px;line-height:1.4}
+  header p{margin-top:10px;opacity:.92;font-size:17px}
+  .wrap{max-width:1020px;margin:0 auto;padding:24px 16px 56px}
+  .note{background:#FFF8E1;border-left:5px solid #F9A825;border-radius:10px;padding:14px 18px;margin:6px 0 20px;font-size:16.5px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:580px){.grid{grid-template-columns:1fr}}
+  .card{background:#fff;border-radius:16px;box-shadow:0 4px 14px rgba(0,0,0,.07);padding:20px;display:flex;flex-direction:column;gap:6px}
+  .name{font-size:23px;font-weight:800;color:#1F3864}
+  .sid{color:#607D8B;font-size:16px}
+  .meta{font-size:15.5px;color:#455A64}
+  .btn{margin-top:10px;display:block;text-align:center;background:#C00000;color:#fff;text-decoration:none;font-weight:700;padding:11px 0;border-radius:10px;font-size:17px}
+  .btn:hover{background:#9C0000}
+  footer{text-align:center;color:#90A4AE;font-size:14px;padding:22px}
+</style>
+</head>
+<body>
+<header>
+  <h1>115-1 研究方法<br>學生論文教師批改（PDF 版）</h1>
+  <p>共 17 位學生｜點姓名卡片下方的按鈕，開啟該位學生的批改 PDF</p>
+</header>
+<div class="wrap">
+  <div class="note">📄 PDF 內文保留教師的修訂痕跡：<b>藍字底線＝新增</b>、<b>紅字刪除線＝刪除</b>；註解以圖示標在原句旁，用電腦的 PDF 閱讀器點開圖示可看完整註解內容。需要逐項接受或拒絕修訂時，請以 Word 原檔為準。</div>
+  <div class="grid" id="grid"></div>
+</div>
+<footer>115-1 研究方法｜教師批改文件</footer>
+<script>
+const students = [
+["11491046","林雋堯",4,26],["11491047","曲庭葦",5,21],["11591002","江雨臻",3,21],
+["11591003","李芷萱",2,20],["11591006","徐莉佳",8,29],["11591009","陳雅芬",4,22],
+["11591016","李郁瑾",4,21],["11591019","張倍瑜",4,24],["11591020","黃婕雯",4,30],
+["11591021","陳韋蒨",4,22],["11591023","李榆媃",4,21],["11591026","呂鈺玫",4,28],
+["11591027","許愷云",5,19],["11591028","楊紓函",4,23],["11591030","邱翊寧",5,24],
+["11591032","薛宇皓",3,19],["11591046","蘇韋勳",3,17]
+];
+document.getElementById('grid').innerHTML = students.map(s =>
+  `<div class="card"><div class="name">${s[1]}</div><div class="sid">學號 ${s[0]}</div>` +
+  `<div class="meta">批改 PDF ${s[2]} 頁｜教師註解 ${s[3]} 則</div>` +
+  `<a class="btn" href="files/${s[0]}.pdf" target="_blank" rel="noopener">開啟 PDF</a></div>`
+).join('');
+</script>
+</body>
+</html>
